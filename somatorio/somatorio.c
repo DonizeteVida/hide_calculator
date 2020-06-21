@@ -8,7 +8,7 @@ typedef struct
     double m, n;
 } ValorSomatorio;
 
-ValorSomatorio *_pegarValores()
+ValorSomatorio _pegarValores()
 {
     ValorSomatorio valoresSomatorio;
 
@@ -18,18 +18,18 @@ ValorSomatorio *_pegarValores()
     printf("Digite o valor da final, n: ");
     scanf("%lf", &valoresSomatorio.n);
 
-    return &valoresSomatorio;
+    return valoresSomatorio;
 }
 
 long double _processaSomatorio(long double (*somatorio)(long double, long double))
 {
-    ValorSomatorio *valor = _pegarValores();
-    return somatorio(valor->m, valor->n);
+    ValorSomatorio valor = _pegarValores();
+    return somatorio(valor.m, valor.n);
 }
 
 void _processarResultado(long double resultado, int qualSomatorio)
 {
-    printf("O resultado do somatório %d foi de %lf.\n", qualSomatorio, resultado);
+    printf("O resultado do somatório %d foi de %Lf.\n", qualSomatorio, resultado);
     getchar();
 }
 
