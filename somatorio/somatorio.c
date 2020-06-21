@@ -29,7 +29,7 @@ long double _processaSomatorio(long double (*somatorio)(long double, long double
 
 void _processarResultado(long double resultado, int qualSomatorio)
 {
-    printf("O resultado do somatório %d foi de %.0Lf.\n", qualSomatorio, resultado);
+    printf("O resultado do somatório %d foi de %Le.\n\n", qualSomatorio, resultado);
 }
 
 long double _factorial(long double num)
@@ -47,7 +47,7 @@ void showSomatorioSubmenu()
 
     do
     {
-        printf("   SOMATÓRIO\n1. Somatório de j até m para a regra j\n2. Somatório de j = m até n para a regra (-j)^(j+1)\n3. Somatório de j = 0 até n para a regra 1/j!\n4. Somatório de j = 0 até n para a regra 8 / ( ( 4j + 1 ) * ( 4j + 3 ) )\n5. Sair do programa\n\n");
+        printf("   SOMATÓRIO\n1. Somatório de j até m para a regra j\n2. Somatório de j = m até n para a regra (-j)^(j+1)\n3. Somatório de j = 0 até n para a regra 1/j!\n4. Somatório de j = 0 até n para a regra 8 / ( ( 4j + 1 ) * ( 4j + 3 ) )\n5. Sair do somatório\n\n");
         scanf("%d", &opc);
 
         switch (opc)

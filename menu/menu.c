@@ -33,4 +33,5 @@ void printProgramName(const char *const name)
     {
         printf("%%");
     }
+    printf("\n\n");
 }
