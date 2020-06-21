@@ -27,6 +27,12 @@ long double _processaSomatorio(long double (*somatorio)(long double, long double
     return somatorio(valor->m, valor->n);
 }
 
+void _processarResultado(long double resultado, int qualSomatorio)
+{
+    printf("O resultado do somatório %d foi de %lf.\n", qualSomatorio, resultado);
+    getchar();
+}
+
 void showSomatorioSubmenu()
 {
     int opc;
@@ -40,10 +46,10 @@ void showSomatorioSubmenu()
         switch (opc)
         {
         case 1:
-            long double resultado = _processaSomatorio(&somatorio1);
+            _processarResultado(_processaSomatorio(&somatorio1), 1);
             break;
         case 2:
-            long double resultado = _processaSomatorio(&somatorio2);
+            _processarResultado(_processaSomatorio(&somatorio2), 2);
             break;
         case 3:
         default:
