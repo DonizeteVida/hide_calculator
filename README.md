@@ -6,4 +6,6 @@ Para compilar as dependencias de main use o comando __*gcc -c pasta/pasta.c -o p
 
 Caso queira fazer as link edições manualmente digite __*gcc main.c -o main.o pasta/pasta.o -lm*__
 
+# Agora temos o Makefile para automatizar o processo de build
+Digite *make main* e veja a mágica acontecer
 
