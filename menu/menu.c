@@ -1,8 +1,8 @@
-#include "menu.h"
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
+#include "menu.h"
 
 typedef struct winsize Size;
 
