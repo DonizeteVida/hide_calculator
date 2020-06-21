@@ -1,3 +1,6 @@
+maindebug: somatorio/somatorio.o menu/menu.o
+	gcc -g main.c -o main somatorio/somatorio.o menu/menu.o -lm
+
 main: somatorio/somatorio.o menu/menu.o
 	gcc main.c -o main somatorio/somatorio.o menu/menu.o -lm
 

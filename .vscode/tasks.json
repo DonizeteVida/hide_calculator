@@ -3,45 +3,10 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"label": "C/C++: gcc build active file",
-			"command": "/usr/bin/gcc",
+			"label": "make maindebug",
+			"command": "make",
 			"args": [
-				"-g",
-				"${file}",
-				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}",
-				"somatorio/somatorio.o",
-				"menu/menu.o",
-				"-lm"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": {
-				"kind": "test",
-				"isDefault": true
-			}
-		},
-		{
-			"type": "shell",
-			"label": "Fazer build final",
-			"command": "/usr/bin/gcc",
-			"args": [
-				"${file}",
-				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}",
-				"somatorio/somatorio.o",
-				"menu/menu.o",
-				"-lm"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}"
-			},
-			"problemMatcher": [
-				"$gcc"
+				"maindebug"
 			],
 			"group": {
 				"kind": "build",
