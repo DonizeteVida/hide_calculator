@@ -5,23 +5,25 @@
 
 typedef struct
 {
-    double m, n;
+    long double m, n;
 } ValorSomatorio;
+
+typedef long double (*SomatorioPointer)(long double, long double);
 
 ValorSomatorio _pegarValores()
 {
     ValorSomatorio valorSomatorio;
 
     printf("Digite o valor inicial, m: ");
-    scanf("%lf", &valorSomatorio.m);
+    scanf("%Lf", &valorSomatorio.m);
 
     printf("Digite o valor da final, n: ");
-    scanf("%lf", &valorSomatorio.n);
+    scanf("%Lf", &valorSomatorio.n);
 
     return valorSomatorio;
 }
 
-long double _processaSomatorio(long double (*somatorio)(long double, long double))
+long double _processaSomatorio(SomatorioPointer somatorio)
 {
     ValorSomatorio valor = _pegarValores();
     return somatorio(valor.m, valor.n);
@@ -29,7 +31,7 @@ long double _processaSomatorio(long double (*somatorio)(long double, long double
 
 void _processarResultado(long double resultado, int qualSomatorio)
 {
-    printf("O resultado do somatório %d foi de %Le.\n\n", qualSomatorio, resultado);
+    printf("O resultado do somatório %d foi de %Lf\n\n", qualSomatorio, resultado);
 }
 
 long double _factorial(long double num)
