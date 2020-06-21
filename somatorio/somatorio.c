@@ -1,13 +1,17 @@
 #include "somatorio.h"
 #include <stdio.h>
+#include <math.h>
 
-int somatorio1(int m, int n)
+long double somatorio1(long double m, long double n)
 {
-    printf("Do nothing");
-    return 1;
+    if (m == n)
+    {
+        return m;
+    }
+    return m + somatorio1(m + 1, n);
 }
 
-int somatorio2(int m, int n)
+long double somatorio2(long double m, long double n)
 {
     printf("Do nothing");
     return 1;

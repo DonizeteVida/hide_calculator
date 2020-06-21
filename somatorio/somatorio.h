@@ -1,3 +1,3 @@
-int somatorio1(int, int);
+long double somatorio1(long double, long double);
 
-int somatorio2(int, int);
+long double somatorio2(long double, long double);
