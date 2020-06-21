@@ -10,15 +10,15 @@ typedef struct
 
 ValorSomatorio _pegarValores()
 {
-    ValorSomatorio valoresSomatorio;
+    ValorSomatorio valorSomatorio;
 
     printf("Digite o valor inicial, m: ");
-    scanf("%lf", &valoresSomatorio.m);
+    scanf("%lf", &valorSomatorio.m);
 
     printf("Digite o valor da final, n: ");
-    scanf("%lf", &valoresSomatorio.n);
+    scanf("%lf", &valorSomatorio.n);
 
-    return valoresSomatorio;
+    return valorSomatorio;
 }
 
 long double _processaSomatorio(long double (*somatorio)(long double, long double))
@@ -29,8 +29,16 @@ long double _processaSomatorio(long double (*somatorio)(long double, long double
 
 void _processarResultado(long double resultado, int qualSomatorio)
 {
-    printf("O resultado do somatório %d foi de %Lf.\n", qualSomatorio, resultado);
-    getchar();
+    printf("O resultado do somatório %d foi de %.0Lf.\n", qualSomatorio, resultado);
+}
+
+long double _factorial(long double num)
+{
+    if (num == 0)
+    {
+        return 1;
+    }
+    return num * _factorial(num - 1);
 }
 
 void showSomatorioSubmenu()
@@ -39,7 +47,6 @@ void showSomatorioSubmenu()
 
     do
     {
-        system("clear");
         printf("   SOMATÓRIO\n1. Somatório de j até m para a regra j\n2. Somatório de j = m até n para a regra (-j)^(j+1)\n3. Voltar ao menu anterior\n\n");
         scanf("%d", &opc);
 
@@ -52,10 +59,15 @@ void showSomatorioSubmenu()
             _processarResultado(_processaSomatorio(&somatorio2), 2);
             break;
         case 3:
+            _processarResultado(_processaSomatorio(&somatorio3), 3);
+            break;
+        case 4:
+            _processarResultado(_processaSomatorio(&somatorio4), 4);
+            break;
         default:
             break;
         }
-    } while (opc != 3);
+    } while (opc != 5);
 }
 
 long double somatorio1(long double m, long double n)
@@ -74,4 +86,22 @@ long double somatorio2(long double m, long double n)
         return pow(-m, m + 1);
     }
     return pow(-m, m + 1) + somatorio2(m + 1, n);
+}
+
+long double somatorio3(long double m, long double n)
+{
+    if (m == n)
+    {
+        return 1 / _factorial(m);
+    }
+    return 1 / _factorial(m) + somatorio3(m + 1, n);
+}
+
+long double somatorio4(long double m, long double n)
+{
+    if (m == n)
+    {
+        return 8 / ((4 * m + 1) * (4 * m + 3));
+    }
+    return 8 / ((4 * m + 1) * (4 * m + 3)) + somatorio4(m + 1, n);
 }
