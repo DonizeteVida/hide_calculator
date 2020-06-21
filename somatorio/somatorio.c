@@ -1,12 +1,31 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
+#include <math.h>
 #include "somatorio.h"
 
 typedef struct
 {
     double m, n;
-} ValoresSomatorio;
+} ValorSomatorio;
+
+ValorSomatorio *_pegarValores()
+{
+    ValorSomatorio valoresSomatorio;
+
+    printf("Digite o valor inicial, m: ");
+    scanf("%lf", &valoresSomatorio.m);
+
+    printf("Digite o valor da final, n: ");
+    scanf("%lf", &valoresSomatorio.n);
+
+    return &valoresSomatorio;
+}
+
+long double _processaSomatorio(long double (*somatorio)(long double, long double))
+{
+    ValorSomatorio *valor = _pegarValores();
+    return somatorio(valor->m, valor->n);
+}
 
 void showSomatorioSubmenu()
 {
@@ -21,11 +40,12 @@ void showSomatorioSubmenu()
         switch (opc)
         {
         case 1:
+            long double resultado = _processaSomatorio(&somatorio1);
             break;
         case 2:
+            long double resultado = _processaSomatorio(&somatorio2);
             break;
         case 3:
-            break;
         default:
             break;
         }
