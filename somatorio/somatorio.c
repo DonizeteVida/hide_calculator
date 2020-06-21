@@ -47,7 +47,7 @@ void showSomatorioSubmenu()
 
     do
     {
-        printf("   SOMATÓRIO\n1. Somatório de j até m para a regra j\n2. Somatório de j = m até n para a regra (-j)^(j+1)\n3. Voltar ao menu anterior\n\n");
+        printf("   SOMATÓRIO\n1. Somatório de j até m para a regra j\n2. Somatório de j = m até n para a regra (-j)^(j+1)\n3. Somatório de j = 0 até n para a regra 1/j!\n4. Somatório de j = 0 até n para a regra 8 / ( ( 4j + 1 ) * ( 4j + 3 ) )\n5. Sair do programa\n\n");
         scanf("%d", &opc);
 
         switch (opc)
