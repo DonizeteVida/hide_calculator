@@ -23,9 +23,9 @@ ValorSomatorio _pegarValores()
     if (valorSomatorio.n < valorSomatorio.m)
     {
         printf("Você não pode digitar o valor final sendo menor que o inicial, os valores serão zerados !!!\n");
+        valorSomatorio.m = 0;
+        valorSomatorio.n = 0;
     }
-    valorSomatorio.m = 0;
-    valorSomatorio.n = 0;
     return valorSomatorio;
 }
 
