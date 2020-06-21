@@ -1,6 +1,36 @@
-#include "somatorio.h"
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+#include "somatorio.h"
+
+typedef struct
+{
+    double m, n;
+} ValoresSomatorio;
+
+void showSomatorioSubmenu()
+{
+    int opc;
+
+    do
+    {
+        system("clear");
+        printf("   SOMATÓRIO\n1. Somatório de j até m para a regra j\n2. Somatório de j = m até n para a regra (-j)^(j+1)\n3. Voltar ao menu anterior\n\n");
+        scanf("%d", &opc);
+
+        switch (opc)
+        {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        default:
+            break;
+        }
+    } while (opc != 3);
+}
 
 long double somatorio1(long double m, long double n)
 {
