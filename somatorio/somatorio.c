@@ -13,6 +13,9 @@ long double somatorio1(long double m, long double n)
 
 long double somatorio2(long double m, long double n)
 {
-    printf("Do nothing");
-    return 1;
+    if (m == n)
+    {
+        return pow(-m, m + 1);
+    }
+    return pow(-m, m + 1) + somatorio2(m + 1, n);
 }

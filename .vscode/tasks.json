@@ -10,7 +10,8 @@
 				"${file}",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
-				"somatorio/somatorio.o"
+				"somatorio/somatorio.o",
+				"menu/menu.o"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"
@@ -31,7 +32,8 @@
 				"${file}",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
-				"somatorio/somatorio.o"
+				"somatorio/somatorio.o",
+				"menu/menu.o"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"
