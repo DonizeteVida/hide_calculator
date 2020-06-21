@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <float.h>
 #include "somatorio.h"
 
 typedef struct
@@ -20,6 +21,12 @@ ValorSomatorio _pegarValores()
     printf("Digite o valor da final, n: ");
     scanf("%Lf", &valorSomatorio.n);
 
+    if (valorSomatorio.n < valorSomatorio.m)
+    {
+        printf("Você não pode digitar o valor final sendo menor que o inicial, os valores serão zerados !!!\n");
+    }
+    valorSomatorio.m = 0;
+    valorSomatorio.n = 0;
     return valorSomatorio;
 }
 
@@ -31,7 +38,7 @@ long double _processaSomatorio(SomatorioPointer somatorio)
 
 void _processarResultado(long double resultado, int qualSomatorio)
 {
-    printf("O resultado do somatório %d foi de %Lf\n\n", qualSomatorio, resultado);
+    printf("O resultado do somatório %d foi de %.50Lf\n\n", qualSomatorio, resultado);
 }
 
 long double _factorial(long double num)
