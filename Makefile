@@ -4,11 +4,15 @@ DEP = somatorio/somatorio.o menu/menu.o
 FLAGS = -lm
 CC = gcc
 
+DEPFLAGS = ${DEP} ${FLAGS}
+
+FMAIN = main.c -o main ${DEPFLAGS}
+
 maindebug: ${DEP}
-	${CC} -g main.c -o main ${DEP} ${FLAGS}
+	${CC} -g ${FMAIN}
 
 main: ${DEP}
-	${CC} main.c -o main ${DEP} ${FLAGS}
+	${CC} ${FMAIN}
 
 %.o: %/%.c %/%.h
 	${CC} -c %/%.c
