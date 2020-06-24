@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "somatorio/somatorio.h"
+#include "analise_combinatoria/analise_combinatoria.h"
+#include "logica_proposicional/logica_proposicional.h"
+#include "matrizes/matrizes.h"
 #include "menu/menu.h"
+#include "somatorio/somatorio.h"
 
 int main(int argc, char const *argv[])
 {
@@ -20,10 +23,13 @@ int main(int argc, char const *argv[])
             showSomatorioSubmenu();
             break;
         case 2:
+            showLogicaProposicionalSubmenu();
             break;
         case 3:
+            showMatrizesSubmenu();
             break;
         case 4:
+            showAnaliseCombinatoriaSubmenu();
             break;
         case 5:
             break;
