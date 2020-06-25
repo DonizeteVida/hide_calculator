@@ -53,6 +53,13 @@ void showSomatorioSubmenu()
 {
     int opc;
 
+    SomatorioPointer somatoriosPointers[] = {
+        &somatorio1,
+        &somatorio2,
+        &somatorio3,
+        &somatorio4,
+    };
+
     do
     {
         printf("   SOMATÓRIO\n1. Somatório de j até m para a regra j\n2. Somatório de j = m até n para a regra (-j)^(j+1)\n3. Somatório de j = 0 até n para a regra 1/j!\n4. Somatório de j = 0 até n para a regra 8 / ( ( 4j + 1 ) * ( 4j + 3 ) )\n5. Sair do somatório\n\n");
@@ -61,18 +68,10 @@ void showSomatorioSubmenu()
         switch (opc)
         {
         case 1:
-            _processarResultado(_processaSomatorio(&somatorio1), 1);
-            break;
         case 2:
-            _processarResultado(_processaSomatorio(&somatorio2), 2);
-            break;
         case 3:
-            _processarResultado(_processaSomatorio(&somatorio3), 3);
-            break;
         case 4:
-            _processarResultado(_processaSomatorio(&somatorio4), 4);
-            break;
-        default:
+            _processarResultado(_processaSomatorio(somatoriosPointers[opc - 1]), opc);
             break;
         }
     } while (opc != 5);
