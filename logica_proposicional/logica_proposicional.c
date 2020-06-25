@@ -32,6 +32,14 @@ void _processSingle(SingleCheck singleCheck, const char *const who)
 
 void showLogicaProposicionalSubmenu()
 {
+    DoubleCheck doubleChecks[] = {
+        &and,
+        &or,
+        &xor,
+        &ifJust,
+        &ifJustIf,
+    };
+
     int opc = 0;
     do
     {
@@ -41,25 +49,15 @@ void showLogicaProposicionalSubmenu()
         switch (opc)
         {
         case 1:
-            _processSingle(&not, "p");
-            break;
         case 2:
-            _processSingle(&not, "q");
+            _processSingle(&not, opc == 1 ? "p": "q");
             break;
         case 3:
-            _processDouble(&and);
-            break;
         case 4:
-            _processDouble(&or);
-            break;
         case 5:
-            _processDouble(&xor);
-            break;
         case 6:
-            _processDouble(&ifJust);
-            break;
         case 7:
-            _processDouble(&ifJustIf);
+            _processDouble(doubleChecks[opc - 3]);
             break;
         }
     } while (opc != 8);
