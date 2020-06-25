@@ -9,11 +9,17 @@
 int main(int argc, char const *argv[])
 {
     int opc = 0;
-
+    int wrongOption = 0;
     do
     {
         system("clear");
         printProgramName("Mini calculadora discreta\0");
+
+        if(wrongOption){
+            wrongOption = 0;
+            printf("Nenhuma opção selecionada, tente novamente\n");
+        }
+
         printf("   MENU\n1. Somatório\n2. Lógica proposicional\n3. Matrizes\n4. Análise combinatória\n5. Sair\n\n");
         scanf("%d", &opc);
 
@@ -34,7 +40,7 @@ int main(int argc, char const *argv[])
         case 5:
             break;
         default:
-            printf("Nenhuma opção selecionada, tente novamente\n");
+            wrongOption = 1;
             break;
         }
     } while (opc != 5);
