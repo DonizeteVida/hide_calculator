@@ -1,5 +1,96 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "matrizes.h"
 
-void showMatrizesSubmenu(){
+void _mostrarMatriz(int **matriz, int r, int c)
+{
+    for (int lr = 0; lr < r; lr++)
+    {
+        for (int lc = 0; lc < c; lc++)
+        {
+            printf("%d ", matriz[lr][lc]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+int **_construirMatriz(int r, int c)
+{
+    int **matriz = malloc(r * sizeof(int *));
+
+    for (int i = 0; i < r; i++)
+    {
+        matriz[i] = malloc(c * sizeof(int));
+        for (int j = 0; j < c; j++)
+        {
+            printf("Digite o valor da celula %d %d: ", i + 1, j + 1);
+
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+    printf("\n");
+    _mostrarMatriz(matriz, r, c);
+    return matriz;
+}
+
+void calcularDeterminante(int **matriz, int r, int c)
+{
+    int dp = 1;
+    int ds = 1;
+
+    for (int lr = 0, lc = 0; lr < r && lc < c; lr++, lc++)
+    {
+        dp *= matriz[lr][lc];
+    }
+
+    for (int lr = 0, lc = c -1; lr < r && lc >= 0; lr++, lc--)
+    {
+        ds *= matriz[lr][lc];
+    }
+
+    printf("Diagonal principal: %d e diagonal segundaria: %d\n", dp, ds);
+    printf("O determinante e de %d.\n\n", dp - ds);
+}
+
+void soma(int ** matriz1, int ** matriz2, int r, int c){
     
+}
+void subtracao(int ** matriz1, int ** matriz2, int r, int c){
+    
+}
+void produto(int ** matriz1, int ** matriz2, int r, int c){
+    
+}
+
+void showMatrizesSubmenu()
+{
+    int opc;
+    int r = 2, c = 2;
+    do
+    {
+        printf("MATRIZES\n1. Determinante\n2. Soma\n3. Subtracao\n4. Produto\n5. Voltar ao menu anterior\n");
+        scanf("%d", &opc);
+
+        switch (opc)
+        {
+        case 1:
+            calcularDeterminante(_construirMatriz(r, c), r, c);
+            break;
+        case 2:
+            soma(_construirMatriz(r, c), _construirMatriz(r, c), r, c);
+            break;
+        case 3:
+            subtracao(_construirMatriz(r, c), _construirMatriz(r, c), r, c);
+            break;
+        case 4:
+            produto(_construirMatriz(r, c), _construirMatriz(r, c), r, c);
+            break;
+        case 5:
+            break;
+        default:
+            break;
+        }
+    } while (opc != 5);
 }
