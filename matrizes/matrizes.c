@@ -99,6 +99,8 @@ void subtracao(int **matriz1, int **matriz2, int r, int c)
 }
 void produto(int **matriz1, int **matriz2, int r, int c)
 {
+    _mostrarMatriz(matriz1, r, c);
+    _mostrarMatriz(matriz2, r, c);
 }
 
 void showMatrizesSubmenu()
@@ -123,8 +125,12 @@ void showMatrizesSubmenu()
             subtracao(_construirMatriz(r, c), _construirMatriz(r, c), r, c);
             break;
         case 4:
-            produto(_construirMatriz(r, c), _construirMatriz(r, c), r, c);
+        {
+            int **a = _construirMatriz(r, c);
+            int **b = _construirMatriz(r, c);
+            produto(a, b, r, c);
             break;
+        }
         case 5:
             break;
         default:
