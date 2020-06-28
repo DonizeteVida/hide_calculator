@@ -3,6 +3,11 @@
 
 #include "matrizes.h"
 
+void _desalocarMatriz(int **matriz, int r, int c)
+{
+
+}
+
 void _mostrarMatriz(int **matriz, int r, int c)
 {
     for (int lr = 0; lr < r; lr++)
@@ -14,15 +19,25 @@ void _mostrarMatriz(int **matriz, int r, int c)
         printf("\n");
     }
     printf("\n");
+    _desalocarMatriz(matriz, r, c);
+}
+
+int **_alocarMatriz(int r, int c)
+{
+    int **alocado = malloc(r * sizeof(int *));
+    for (int i = 0; i < c; i++)
+    {
+        alocado[i] = malloc(c * sizeof(int));
+    }
+    return alocado;
 }
 
 int **_construirMatriz(int r, int c)
 {
-    int **matriz = malloc(r * sizeof(int *));
+    int **matriz = _alocarMatriz(r, c);
 
     for (int i = 0; i < r; i++)
     {
-        matriz[i] = malloc(c * sizeof(int));
         for (int j = 0; j < c; j++)
         {
             printf("Digite o valor da celula %d %d: ", i + 1, j + 1);
@@ -45,7 +60,7 @@ void calcularDeterminante(int **matriz, int r, int c)
         dp *= matriz[lr][lc];
     }
 
-    for (int lr = 0, lc = c -1; lr < r && lc >= 0; lr++, lc--)
+    for (int lr = 0, lc = c - 1; lr < r && lc >= 0; lr++, lc--)
     {
         ds *= matriz[lr][lc];
     }
@@ -54,14 +69,36 @@ void calcularDeterminante(int **matriz, int r, int c)
     printf("O determinante e de %d.\n\n", dp - ds);
 }
 
-void soma(int ** matriz1, int ** matriz2, int r, int c){
-    
+void soma(int **matriz1, int **matriz2, int r, int c)
+{
+    int **matrizSoma = _alocarMatriz(r, c);
+
+    for (int lr = 0; lr < r; lr++)
+    {
+        for (int lc = 0; lc < c; lc++)
+        {
+            matrizSoma[lr][lc] = matriz1[lr][lc] + matriz2[lr][lc];
+        }
+    }
+
+    _mostrarMatriz(matrizSoma, r, c);
 }
-void subtracao(int ** matriz1, int ** matriz2, int r, int c){
-    
+void subtracao(int **matriz1, int **matriz2, int r, int c)
+{
+    int **matrizSubtracao = _alocarMatriz(r, c);
+
+    for (int lr = 0; lr < r; lr++)
+    {
+        for (int lc = 0; lc < c; lc++)
+        {
+            matrizSubtracao[lr][lc] = matriz1[lr][lc] + matriz2[lr][lc];
+        }
+    }
+
+    _mostrarMatriz(matrizSubtracao, r, c);
 }
-void produto(int ** matriz1, int ** matriz2, int r, int c){
-    
+void produto(int **matriz1, int **matriz2, int r, int c)
+{
 }
 
 void showMatrizesSubmenu()
