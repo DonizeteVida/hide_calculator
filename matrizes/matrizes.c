@@ -5,7 +5,6 @@
 
 void _desalocarMatriz(int **matriz, int r, int c)
 {
-
 }
 
 void _mostrarMatriz(int **matriz, int r, int c)
@@ -19,7 +18,6 @@ void _mostrarMatriz(int **matriz, int r, int c)
         printf("\n");
     }
     printf("\n");
-    _desalocarMatriz(matriz, r, c);
 }
 
 int **_alocarMatriz(int r, int c)
@@ -81,6 +79,7 @@ void soma(int **matriz1, int **matriz2, int r, int c)
         }
     }
 
+    printf("O resultado da matriz e: \n");
     _mostrarMatriz(matrizSoma, r, c);
 }
 void subtracao(int **matriz1, int **matriz2, int r, int c)
@@ -91,10 +90,11 @@ void subtracao(int **matriz1, int **matriz2, int r, int c)
     {
         for (int lc = 0; lc < c; lc++)
         {
-            matrizSubtracao[lr][lc] = matriz1[lr][lc] + matriz2[lr][lc];
+            matrizSubtracao[lr][lc] = matriz1[lr][lc] - matriz2[lr][lc];
         }
     }
 
+    printf("O resultado da matriz e: \n");
     _mostrarMatriz(matrizSubtracao, r, c);
 }
 void produto(int **matriz1, int **matriz2, int r, int c)
@@ -105,6 +105,7 @@ void showMatrizesSubmenu()
 {
     int opc;
     int r = 2, c = 2;
+
     do
     {
         printf("MATRIZES\n1. Determinante\n2. Soma\n3. Subtracao\n4. Produto\n5. Voltar ao menu anterior\n");
