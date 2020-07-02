@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "matrizes.h"
 
 void _desalocarMatriz(int **matriz, int r, int c)
@@ -65,6 +64,8 @@ void calcularDeterminante(int **matriz, int r, int c)
 
     printf("Diagonal principal: %d e diagonal segundaria: %d\n", dp, ds);
     printf("O determinante e de %d.\n\n", dp - ds);
+
+    _desalocarMatriz(matriz, r, c);
 }
 
 void soma(int **matriz1, int **matriz2, int r, int c)
@@ -81,6 +82,10 @@ void soma(int **matriz1, int **matriz2, int r, int c)
 
     printf("O resultado da matriz e: \n");
     _mostrarMatriz(matrizSoma, r, c);
+
+    _desalocarMatriz(matriz1, r, c);
+    _desalocarMatriz(matriz2, r, c);
+    _desalocarMatriz(matrizSoma, r, c);
 }
 void subtracao(int **matriz1, int **matriz2, int r, int c)
 {
@@ -96,6 +101,10 @@ void subtracao(int **matriz1, int **matriz2, int r, int c)
 
     printf("O resultado da matriz e: \n");
     _mostrarMatriz(matrizSubtracao, r, c);
+
+    _desalocarMatriz(matriz1, r, c);
+    _desalocarMatriz(matriz2, r, c);
+    _desalocarMatriz(matrizSubtracao, r, c);
 }
 void produto(int **matriz1, int **matriz2, int r, int c)
 {
@@ -119,16 +128,24 @@ void showMatrizesSubmenu()
             calcularDeterminante(_construirMatriz(r, c), r, c);
             break;
         case 2:
-            soma(_construirMatriz(r, c), _construirMatriz(r, c), r, c);
+        {
+            int **matriz1 = _construirMatriz(r, c);
+            int **matriz2 = _construirMatriz(r, c);
+            soma(matriz1, matriz2, r, c);
             break;
+        }
         case 3:
-            subtracao(_construirMatriz(r, c), _construirMatriz(r, c), r, c);
+        {
+            int **matriz1 = _construirMatriz(r, c);
+            int **matriz2 = _construirMatriz(r, c);
+            subtracao(matriz1, matriz2, r, c);
             break;
+        }
         case 4:
         {
-            int **a = _construirMatriz(r, c);
-            int **b = _construirMatriz(r, c);
-            produto(a, b, r, c);
+            int **matriz1 = _construirMatriz(r, c);
+            int **matriz2 = _construirMatriz(r, c);
+            produto(matriz1, matriz2, r, c);
             break;
         }
         case 5:

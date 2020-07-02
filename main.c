@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 #include "analise_combinatoria/analise_combinatoria.h"
 #include "logica_proposicional/logica_proposicional.h"
 #include "matrizes/matrizes.h"
@@ -10,6 +11,7 @@ int main(int argc, char const *argv[])
 {
     int opc = 0;
     int wrongOption = 0;
+    setlocale(LC_ALL, "Portuguese");
     do
     {
         system("clear");
