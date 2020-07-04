@@ -11,7 +11,6 @@ void showAnaliseCombinatoriaSubmenu()
     double m, n, j, o, a, b, c, d;
     do
     {
-        sleep(1);
         printf("\nAnálise combinatória \n1. Fatorial \n2. Permutação simples \n3. Permutação com repetição \n4. Arranjo simples \n5. Arranjo com repetição \n6. Combinação simples \n7. Combinação com repetição\nOpção desejada: ");
         scanf("%d", &opc);
 
@@ -125,7 +124,6 @@ void showAnaliseCombinatoriaSubmenu()
             m = m / d;
             printf("\nA combinção com repetição de  %.0lf elementos e %0.lf agrupamentos que se repetem é igual a: %.0lf ", a, b, m);
             break;
-            break;
         default:
             break;
         }
@@ -135,9 +133,9 @@ void showAnaliseCombinatoriaSubmenu()
             scanf("%d", &opc);
             if (opc != 1)
             {
-                printf("\nSaindo de análise combinatória !");
+                printf("\nSaindo de análise combinatória !\n");
                 sleep(2);
-                system("cls");
+                system("clear");
                 break;
             }
             printf("\nIniciando novamente");
@@ -151,14 +149,14 @@ void showAnaliseCombinatoriaSubmenu()
             printf(".");
             sleep(1);
             printf(".");
-            system("cls");
+            system("clear");
         }
         else
         {
-            printf("\nOpção inválida, por favor, tente novamente !");
+            printf("\nOpção inválida, por favor, tente novamente !\n");
             sleep(2);
             opc = 1;
-            system("cls");
+            system("clear");
         }
     } while (opc <= 7 && opc != 0);
 }
