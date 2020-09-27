@@ -3,5 +3,5 @@
 
 void printProgramName(const char *const name)
 {
-    printf("%s", name);
+    printf("%s\n", name);
 }

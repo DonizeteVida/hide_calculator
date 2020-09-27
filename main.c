@@ -11,10 +11,10 @@ int main(int argc, char const *argv[])
 {
     int opc = 0;
     int wrongOption = 0;
-    setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, "");
     do
     {
-        system("clear");
+        system("cls");
         printProgramName("Mini calculadora discreta\0");
 
         if(wrongOption){
@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
             printf("Nenhuma opção selecionada, tente novamente\n");
         }
 
-        printf("   MENU\n1. Somatório\n2. Lógica proposicional\n3. Matrizes\n4. Análise combinatória\n5. Sair\n\n");
+        printf("\tMENU\n1. Somatório\n2. Lógica proposicional\n3. Matrizes\n4. Análise combinatória\n5. Sair\n\n");
         scanf("%d", &opc);
 
         switch (opc)

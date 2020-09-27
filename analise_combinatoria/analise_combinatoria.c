@@ -135,7 +135,7 @@ void showAnaliseCombinatoriaSubmenu()
             {
                 printf("\nSaindo de análise combinatória !\n");
                 sleep(2);
-                system("clear");
+                system("cls");
                 break;
             }
             printf("\nIniciando novamente");
@@ -149,14 +149,14 @@ void showAnaliseCombinatoriaSubmenu()
             printf(".");
             sleep(1);
             printf(".");
-            system("clear");
+            system("cls");
         }
         else
         {
             printf("\nOpção inválida, por favor, tente novamente !\n");
             sleep(2);
             opc = 1;
-            system("clear");
+            system("cls");
         }
     } while (opc <= 7 && opc != 0);
 }
