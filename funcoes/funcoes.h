@@ -1,4 +1,5 @@
 #define E 2.718281828459045235360287
+#define PI 3.1415
 
 typedef struct{
     float left;

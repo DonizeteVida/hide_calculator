@@ -40,17 +40,17 @@
 
 /*8*/ float fsin(float number)
 {
-    return sinf(number / 360.0  * 3.14 * 2);
+    return sinf(number / 360.0  * PI * 2);
 }
 
 /*9*/ float fcos(float number)
 {
-    return cosf(number / 360.0  * 3.14 * 2);
+    return cosf(number / 360.0  * PI * 2);
 }
 
 /*10*/ float ftan(float number)
 {
-    return tanf(number / 360.0  * 3.14 * 2);
+    return tanf(number / 360.0  * PI * 2);
 }
 
 FPair *getPair()
