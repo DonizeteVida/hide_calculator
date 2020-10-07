@@ -3,19 +3,38 @@
 #include <stdlib.h>
 #include "funcoes.h"
 
-/*1*/ float constK(FPair *pair)
-{
-    return pair->right;
+float get(const char *const phrase)
+{   
+    fflush(stdin);
+    float f;
+    printf("%s", phrase);
+    scanf("%f", &f);
+    return f;
 }
 
-/*2*/ float x(FPair *pair)
+float getConst()
 {
-    return powf(pair->left, pair->right);
+    return get("Digite o valor de K: ");
 }
 
-/*3*/ float k(FPair *pair)
+float getFloat()
 {
-    return powf(pair->left, pair->right);
+    return get("Digite o valor: ");
+}
+
+/*1*/ float constK(float number)
+{
+    return getConst();
+}
+
+/*2*/ float x(float number)
+{
+    return powf(getFloat(), getConst());
+}
+
+/*3*/ float k(float number)
+{
+    return powf(getConst(), getFloat());
 }
 
 /*4*/ float e(float expo)
@@ -23,9 +42,10 @@
     return powf(E, expo);
 }
 
-/*5*/ float logbn(FPair *pair)
+/*5*/ float logbn(float number)
 {
-    return log10(pair->right) / log10(pair->left);
+    float k = getConst();
+    return log10(getFloat()) / log10(k);
 }
 
 /*6*/ float ln(float number)
@@ -40,37 +60,17 @@
 
 /*8*/ float fsin(float number)
 {
-    return sinf(number / 360.0  * PI * 2);
+    return sinf(number / 360.0 * PI * 2);
 }
 
 /*9*/ float fcos(float number)
 {
-    return cosf(number / 360.0  * PI * 2);
+    return cosf(number / 360.0 * PI * 2);
 }
 
 /*10*/ float ftan(float number)
 {
-    return tanf(number / 360.0  * PI * 2);
-}
-
-FPair *getPair()
-{
-    FPair *pair = (FPair *)malloc(sizeof(FPair));
-    printf("Digite o primeiro valor: ");
-    scanf("%f", &pair->left);
-
-    printf("Digite o segundo valor: ");
-    scanf("%f", &pair->right);
-
-    return pair;
-}
-
-float getFloat()
-{
-    float f;
-    printf("Digite o valor: ");
-    scanf("%f", &f);
-    return f;
+    return tanf(number / 360.0 * PI * 2);
 }
 
 void mostrarValor(float valor)
@@ -93,19 +93,19 @@ void showFuncoesSubmenu()
         switch (opc)
         {
         case 1:
-            mostrarValor(constK(getPair()));
+            mostrarValor(constK(getFloat()));
             break;
         case 2:
-            mostrarValor(x(getPair()));
+            mostrarValor(x(getFloat()));
             break;
         case 3:
-            mostrarValor(k(getPair()));
+            mostrarValor(k(getFloat()));
             break;
         case 4:
             mostrarValor(e(getFloat()));
             break;
         case 5:
-            mostrarValor(logbn(getPair()));
+            mostrarValor(logbn(getFloat()));
             break;
         case 6:
             mostrarValor(ln(getFloat()));
