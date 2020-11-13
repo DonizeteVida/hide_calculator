@@ -6,7 +6,7 @@
         {
             "label": "maindebug",
             "type": "shell",
-            "command": "make",
+            "command": "mingw32-make",
             "args": [
                 "maindebug"
             ]

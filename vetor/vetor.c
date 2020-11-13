@@ -18,15 +18,14 @@ int *criarVetor()
 {
     //Ponteiro de inteiro -> int *
     //int = 4 bytes
-    int *p = (int *)malloc(sizeof(int) * 5);
-    return p;
+    return malloc(sizeof(int) * 5);
 }
 
 int *preencheVetor(int *p)
 {
     for (int i = 0; i < 5; i++)
     {
-        printf("Escreva o valor da posiÃ§Ã£o %d: ", i + 1);
+        printf("Escreva o valor da posição %d: ", i + 1);
         scanf("%d", p + i);
     }
     return p;

@@ -4,7 +4,6 @@
 #include "analise_combinatoria/analise_combinatoria.h"
 #include "logica_proposicional/logica_proposicional.h"
 #include "matrizes/matrizes.h"
-#include "menu/menu.h"
 #include "somatorio/somatorio.h"
 #include "vetor/vetor.h"
 #include "funcoes/funcoes.h"
@@ -14,7 +13,7 @@ typedef void (*Submenu)(void);
 
 int main(int argc, char const *argv[])
 {
-    setlocale(LC_MIN, "");
+    setlocale(LC_ALL, "");
 
     int opc = 0;
     int wrongOption = 0;
@@ -22,15 +21,15 @@ int main(int argc, char const *argv[])
     do
     {
         system("cls");
-        printProgramName("Mini calculadora discreta\0");
+        printf("Mini calculadora discreta\n");
 
         if (wrongOption)
         {
             wrongOption = 0;
-            printf("Nenhuma opÃ§Ã£o selecionada, tente novamente\n");
+            printf("Nenhuma opção selecionada, tente novamente\n");
         }
 
-        printf("\t\tMENU\n1.\tSomatÃ³rio\n2.\tLÃ³gica proposicional\n3.\tMatrizes\n4.\tAnÃ¡lise combinatÃ³ria\n5.\tOrdenar Elementos do Vetor\n6.\tAplicaÃ§Ã£o em FunÃ§Ã£o\n7.\tAplicaÃ§Ã£o em Derivadas\n8.\tSair\n\n");
+        printf("\t\tMENU\n1.\tSomatório\n2.\tLógica proposicional\n3.\tMatrizes\n4.\tAnálise combinatória\n5.\tOrdenar Elementos do Vetor\n6.\tAplicação em função\n7.\tAplicação em derivadas\n8.\tSair\n\n");
         scanf("%d", &opc);
 
         Submenu submenus[] = {

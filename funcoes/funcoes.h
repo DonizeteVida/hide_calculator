@@ -1,3 +1,6 @@
+#ifndef _FUNCOES_H
+#define _FUNCOES_H
+
 #define E 2.718281828459045235360287
 #define PI 3.1415
 
@@ -13,4 +16,7 @@
 /*10*/float ftan(float _number);
 
 void showFuncoesSubmenu();
+
+
+#endif
 
